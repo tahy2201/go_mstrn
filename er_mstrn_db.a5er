@@ -1,0 +1,137 @@
+﻿# A5:ER FORMAT:13
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright (C)2007 m.matsubara
+# A5:SQL Mk-2 Copyright (C)1997 m.matsubara
+#  http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
+
+[Manager]
+ProjectName=mstrn
+Author=俺。
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",2,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=2
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSTypeName=Oracle Database
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+ShowTag=1
+ShowCommonAttributes=0
+
+[Entity]
+PName=t_exercise_master
+LName=種目マスタ
+Comment=
+TableOption=
+Page=MAIN
+Left=350
+Top=150
+Field="種目ID","exercise_id","@VARCHAR(15)","NOT NULL",0,"","",$FFFFFFFF,""
+Field="種目名","exercise_name","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="説明","description","@VARCHAR(400)",,,"","",$FFFFFFFF,""
+Field="メーカー","machine_maker","@VARCHAR(100)",,,"","",$FFFFFFFF,""
+Field="作成者","create_user","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日","create_date","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新者","update_user","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日","update_date","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20190521234354
+Position="MAIN",350,150,215,240
+ZOrder=0
+
+[Entity]
+PName=t_train_record
+LName=トレーニング記録
+Comment=
+TableOption=
+Page=MAIN
+Left=700
+Top=150
+Field="トレーニングID","train_id","@VARCHAR(15)","NOT NULL",0,"","",$FFFFFFFF,""
+Field="種目ID","exercise_id","@VARCHAR(15)","NOT NULL",1,"","",$FFFFFFFF,""
+Field="回次","set_count","@INT","NOT NULL",,"","",$FFFFFFFF,""
+Field="重量","exercise_weight","@DOUBLE",,,"","",$FFFFFFFF,""
+Field="回数","exercise_times","@INT",,,"","",$FFFFFFFF,""
+Field="メモ","exercise_memo","@VARCHAR(400)",,,"","",$FFFFFFFF,""
+Field="作成者","create_user","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日","create_date","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新者","update_user","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日","update_date","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20190521234441
+Position="MAIN",700,150,300,255
+ZOrder=1
+
+[Entity]
+PName=t_user_profile
+LName=ユーザプロフィール
+Comment=
+TableOption=
+Page=Main
+Left=350
+Top=500
+Field="ユーザID","user_id","@VARCHAR(15)","NOT NULL",0,"","",$FFFFFFFF,""
+Field="ユーザ名","user_name","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="誕生日","birthday","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
+Field="メールアドレス","mail_address","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="パスワード","password","@VARCHAR(15)","NOT NULL",,"","",$FFFFFFFF,""
+Field="プロフィール","profile","@VARCHAR(400)",,,"","",$FFFFFFFF,""
+Field="作成者","create_user","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日","create_date","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新者","update_user","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日","update_date","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20190521234515
+Position="Main",350,500,228,309
+ZOrder=2
+
+[Entity]
+PName=t_user_physical_data
+LName=ユーザデータ
+Comment=
+TableOption=
+Page=Main
+Left=650
+Top=550
+Field="ユーザID","user_id","@VARCHAR(15)","NOT NULL",0,"","",$FFFFFFFF,""
+Field="データ番号","data_num","@INT","NOT NULL",1,"","",$FFFFFFFF,""
+Field="身長","height","@DOUBLE",,,"","",$FFFFFFFF,""
+Field="体重","weight","@DOUBLE",,,"","",$FFFFFFFF,""
+Field="体脂肪率","body_fat_percentage","@DOUBLE",,,"","",$FFFFFFFF,""
+Field="最低血圧","blood_pressure_min","@DOUBLE",,,"","",$FFFFFFFF,""
+Field="最高血圧","blood_pressure_max","@DOUBLE",,,"","",$FFFFFFFF,""
+Field="脈拍","pulse","@DOUBLE",,,"","",$FFFFFFFF,""
+Field="作成者","create_user","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日","create_date","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新者","update_user","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日","update_date","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20190521234534
+Position="Main",650,550,283,315
+ZOrder=3

@@ -1,8 +1,9 @@
 package main
 
 import (
-	"dto"
 	"fmt"
+
+	"github.com/tahy2201/go_mstrn/src/dto"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
@@ -10,9 +11,9 @@ import (
 
 func gormConnect() *gorm.DB {
 	DBMS := "postgres"
-	USER := "appuser"
+	USER := "appluser"
 	PASS := "app1user"
-	PROTOCOL := "192.168.99.100"
+	PROTOCOL := "localhost"
 	DBNAME := "mstrndb"
 
 	// CONNECT =
@@ -24,29 +25,22 @@ func gormConnect() *gorm.DB {
 	return db
 }
 
-func main() {
+// ExecDb DB実行結果を返します。
+func ExecDb() *[]dto.TUserProfile {
 	db := gormConnect()
 	defer db.Close()
 
 	userProfile := []dto.TUserProfile{}
 
-	db.Find(&userProfile)
+	db.Debug().Find(&userProfile)
 
 	fmt.Printf("取得したレコード数:%d\n", len(userProfile))
 
-	for _, emp := range userProfile {
-		fmt.Println("yaru")
-		fmt.Println(emp.UserName)
-		fmt.Println(emp.UserName)
-		fmt.Println(emp.Birthday)
-		fmt.Println(emp.MailAddress)
-		fmt.Println(emp.Password)
-		fmt.Println(emp.Profile)
-		fmt.Println(emp.RegistData)
-		fmt.Println(emp.CreateUser)
-		fmt.Println(emp.CreateDate)
-		fmt.Println(emp.UpdateUser)
-		fmt.Println(emp.UpdateDate)
-	}
+	fmt.Printf("取得結果%v\n", userProfile)
 
+	// foreachっぽい書き方
+	// for _, emp := range userProfile {
+	// 	fmt.Println(emp.UserId)
+	// }
+	return &userProfile
 }

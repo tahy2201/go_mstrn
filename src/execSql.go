@@ -25,6 +25,14 @@ func gormConnect() *gorm.DB {
 	return db
 }
 
+func InsertTrainRecord(trainData *dto.TTrainRecord) {
+	db := gormConnect()
+	defer db.Close()
+
+	trainData.TrainID = 0
+	db.Create(&trainData)
+}
+
 // ExecDb DB実行結果を返します。
 func ExecDb() *[]dto.TUserProfile {
 	db := gormConnect()
